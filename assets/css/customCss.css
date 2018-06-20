@@ -1,0 +1,55 @@
+/* 对滚动条的定制化*/
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.1);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgb(248, 208, 142);
+}
+/* 背景色以及主要字体的定制化*/
+body{
+  /* background-color: #fffaf0; */
+  font-family: 'Montserrat', "PingFang SC", "Microsoft YaHei", sans-serif;;
+  -webkit-font-smoothing: antialiased;
+}
+/* */
+#nprogress .bar{
+  background: rgb(248, 208, 142);
+}
+/* 左上title的定制化*/
+@font-face{ 
+  font-family: 'Parley Blod';
+  src: url('/assets/fonts/parley\ bold.ttf'); 
+}
+.mdui-typo-title{
+  font-family: 'Parley Blod';
+  font-size: 50px;
+}
+
+/* 高亮的一些字*/
+.mdui-typo a{
+  color: #FF9300;
+}
+.mdui-radio input[type=radio]:checked+.mdui-radio-icon{
+  border-color: #FF9300;
+}
+.mdui-radio-icon:before{
+  background-color: #FF9300;
+}
+.mdui-textfield-focus .mdui-textfield-input, 
+.mdui-textfield-invalid-html5 .mdui-textfield-input{
+  border-bottom: 1px solid #FF9300;
+  box-shadow: 0 1px 0 0 #FF9300;  
+}
+
+/* menu-item 的 active状态*/
+.mdui-btn:hover, .mdui-list-item-active{
+  background-color: rgba(255,222,173,.6);
+}
+
+.mdui-text-color-blue{
+  color: #FF9300 !important;
+}
