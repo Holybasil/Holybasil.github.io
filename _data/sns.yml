@@ -1,8 +1,8 @@
-- name: bilibili
-  url: 
+# - name: bilibili
+#   url: 
 
-- name: facebook
-  url: 
+# - name: facebook
+#   url: 
 
 - name: github
   url: https://github.com/Holybasil
@@ -16,17 +16,17 @@
 - name: linkedin
   url: 
 
-- name: telegram
-  url: https://web.telegram.org
+# - name: telegram
+#   url: https://web.telegram.org
 
 - name: tumblr
   url: 
 
-- name: twitter
-  url: https://twitter.com/
+# - name: twitter
+#   url: https://twitter.com/
 
 - name: weibo
-  url: 
+  url: https://weibo.com/2746043750
 
 - name: zhihu
   url: 

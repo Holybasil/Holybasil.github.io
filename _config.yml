@@ -1,6 +1,6 @@
 title: "Holybasil"
-description: "A Jekyll theme based on MDUI"
-url: 
+description: "Blog"
+url: https://holybasil.github.io/ 
 baseurl: ""
 author: "许予南"
 paginate: 5
@@ -9,6 +9,9 @@ paginate_path: "/blog/page:num/"
 plugins:
   - jekyll-sitemap
   - jekyll-paginate
+  - jekyll-feed
+  
+gems:
   - jekyll-feed
 
 exclude:
