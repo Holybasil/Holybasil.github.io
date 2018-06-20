@@ -1,0 +1,31 @@
+---
+layout: post
+title:  "grid布局"
+date:   2018-06-19 14:57:06 +0800
+categories: code
+tags: css
+img: '/assets/images/posts/grid-line.png'
+themecolor: "#fff"
+themetextcolor: "#000"
+---
+
+grid布局各属性解释及典型布局案例
+
+## 属性分析
+
+1. GNU/Linux, Unix, 或 macOS 。
+2. Ruby 2.0 以上（含2.0）。
+3. RubyGems
+4. GCC 和 Make（通过`gcc -v` 和 `make -v` 检查是否已安装）。
+
+## 案例实现
+
+```shell
+
+```
+
+$$
+\sum_{i=1}^n x_ie_i
+$$
+
+## 参考
