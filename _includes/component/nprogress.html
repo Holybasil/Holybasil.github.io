@@ -3,33 +3,23 @@
 <script>
 $(document).ready(function () {
     NProgress.configure({
-    showSpinner: true
-});
-NProgress.start();
-$('#nprogress .bar').css({
-    'background': '{{site.data.site.uiux.nprogress_color}}'
-});
-$('#nprogress .peg').css({
-    'box-shadow': '0 0 10px {{site.data.site.uiux.nprogress_color}}, 0 0 15px {{site.data.site.uiux.nprogress_color}}'
-});
-$('#nprogress .spinner-icon').css({
-    'border-top-color': '{{site.data.site.uiux.nprogress_color}}',
-    'border-left-color': '{{site.data.site.uiux.nprogress_color}}'
-});
-/* 定制化失败 暂时从这里解决*/
-// $('#nprogress .bar').css({
-//     'background': 'rgb(248, 208, 142)'
-// });
-// $('#nprogress .peg').css({
-//     'box-shadow': '0 0 10px rgb(248, 208, 142), 0 0 15px rgb(248, 208, 142)'
-// });
-// $('#nprogress .spinner-icon').css({
-//     'border-top-color': 'rgb(248, 208, 142)',
-//     'border-left-color': 'rgb(248, 208, 142)'
-// });
-setTimeout(function() {
-    NProgress.done();
-},{{site.data.site.uiux.nprogress_buffer}});
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '{{site.data.site.uiux.nprogress_color}}'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px {{site.data.site.uiux.nprogress_color}}, 0 0 15px {{site.data.site.uiux.nprogress_color}}'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '{{site.data.site.uiux.nprogress_color}}',
+        'border-left-color': '{{site.data.site.uiux.nprogress_color}}'
+    });
+
+    setTimeout(function() {
+        NProgress.done();
+    },{{site.data.site.uiux.nprogress_buffer}});
     
 });
 

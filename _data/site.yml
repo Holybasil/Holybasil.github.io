@@ -32,7 +32,7 @@ sns_share: # SNS Share Switch
    telegram: true
   
 comment:
-  used: "gitment" # disqus,livere,gitment,valine
+  used: "valine" # disqus,livere,gitment,valine
   # disqus config
   disqus_shortname: "Holybasil" # Your disqus 
   disqus_button: true # disqus load button
@@ -50,8 +50,8 @@ comment:
   #valine config
   valine_notify: false #mail notifier
   valine_verify: false #validation code
-  valine_app_id: ''
-  valine_app_key: ''
+  valine_app_id: 'jO8JuWA38yFAx0DQYwpSeEjN-gzGzoHsz'
+  valine_app_key: '7PU2sEx7mzdCcjTFWcwGwKEP'
   valine_placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!"
 
 prism:

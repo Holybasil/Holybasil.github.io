@@ -45,6 +45,13 @@ body{
   box-shadow: 0 1px 0 0 #FF9300;  
 }
 
+#toc ul .toc-active{
+  border-left: 3px solid #FF9300 !important;
+  background-color: rgb(248, 208, 142) !important;
+}
+#toc ul .toc-h2 a:hover{
+  background-color: rgb(248, 208, 142);
+}
 /* menu-item 的 active状态*/
 .mdui-btn:hover, .mdui-list-item-active{
   background-color: rgba(255,222,173,.6);
