@@ -2,16 +2,13 @@ title: "Holybasil"
 description: "Blog"
 url: https://holybasil.github.io/ 
 baseurl: ""
-author: "许予南"
+author: "Misty"
 paginate: 5
 paginate_path: "/blog/page:num/"
 
 plugins:
   - jekyll-sitemap
   - jekyll-paginate
-  - jekyll-feed
-  
-gems:
   - jekyll-feed
 
 exclude:
