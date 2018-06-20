@@ -1,0 +1,65 @@
+
+
+[
+  
+    {
+      "id"    : "css",
+      "post": [
+          
+         {
+            "title": "grid布局",
+            "excerpt": "grid布局各属性解释及典型布局案例",
+            "url": "/code/2018/06/19/grid.html"
+         } 
+      ]
+    } ,
+  
+    {
+      "id"    : "gem",
+      "post": [
+          
+         {
+            "title": "如何安装 Jekyll ？",
+            "excerpt": "Jekyll 一个可以将纯文本转换成静态网站的工具。本站正是使用jekyll生成并托管在coding page上的。",
+            "url": "/technology/2017/05/27/how-to-install-jekyll.html"
+         } 
+      ]
+    } ,
+  
+    {
+      "id"    : "jekyll",
+      "post": [
+          
+         {
+            "title": "如何安装 Jekyll ？",
+            "excerpt": "Jekyll 一个可以将纯文本转换成静态网站的工具。本站正是使用jekyll生成并托管在coding page上的。",
+            "url": "/technology/2017/05/27/how-to-install-jekyll.html"
+         } 
+      ]
+    } ,
+  
+    {
+      "id"    : "ruby",
+      "post": [
+          
+         {
+            "title": "如何安装 Jekyll ？",
+            "excerpt": "Jekyll 一个可以将纯文本转换成静态网站的工具。本站正是使用jekyll生成并托管在coding page上的。",
+            "url": "/technology/2017/05/27/how-to-install-jekyll.html"
+         } 
+      ]
+    } ,
+  
+    {
+      "id"    : "ubuntu",
+      "post": [
+          
+         {
+            "title": "如何安装 Jekyll ？",
+            "excerpt": "Jekyll 一个可以将纯文本转换成静态网站的工具。本站正是使用jekyll生成并托管在coding page上的。",
+            "url": "/technology/2017/05/27/how-to-install-jekyll.html"
+         } 
+      ]
+    } 
+  
+]
