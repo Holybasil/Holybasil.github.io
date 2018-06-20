@@ -36,7 +36,7 @@ body{
 .mdui-radio input[type=radio]:checked+.mdui-radio-icon{
   border-color: #FF9300;
 }
-.mdui-radio-icon:before{
+.mdui-radio-icon:before, .mdui-typo a:before{
   background-color: #FF9300;
 }
 .mdui-textfield-focus .mdui-textfield-input, 

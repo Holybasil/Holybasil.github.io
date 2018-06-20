@@ -9,7 +9,7 @@ themecolor: "#fff"
 themetextcolor: "#000"
 ---
 
-grid布局各属性解释及典型布局案例
+grid 布局 详解
 
 ## 属性分析
 
