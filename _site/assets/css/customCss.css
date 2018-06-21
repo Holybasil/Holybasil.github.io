@@ -30,7 +30,7 @@ body{
 }
 
 /* 高亮的一些字*/
-.mdui-typo a{
+.mdui-typo a, .mdui-typo code{
   color: #FF9300;
 }
 .mdui-radio input[type=radio]:checked+.mdui-radio-icon{
