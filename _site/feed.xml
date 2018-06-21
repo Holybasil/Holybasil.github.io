@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-06-21T16:52:45+08:00</updated><id>http://localhost:4000/</id><title type="html">Holybasil</title><subtitle>Blog</subtitle><author><name>Misty</name></author><entry><title type="html">grid布局</title><link href="http://localhost:4000/code/2018/06/19/grid.html" rel="alternate" type="text/html" title="grid布局" /><published>2018-06-19T14:57:06+08:00</published><updated>2018-06-19T14:57:06+08:00</updated><id>http://localhost:4000/code/2018/06/19/grid</id><content type="html" xml:base="http://localhost:4000/code/2018/06/19/grid.html">&lt;h1 id=&quot;grid-布局的属性讲解及案例实现&quot;&gt;grid 布局的属性讲解及案例实现&lt;/h1&gt;
-
-&lt;hr /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-06-21T16:57:13+08:00</updated><id>http://localhost:4000/</id><title type="html">Holybasil</title><subtitle>Blog</subtitle><author><name>Misty</name></author><entry><title type="html">grid布局</title><link href="http://localhost:4000/code/2018/06/19/grid.html" rel="alternate" type="text/html" title="grid布局" /><published>2018-06-19T14:57:06+08:00</published><updated>2018-06-19T14:57:06+08:00</updated><id>http://localhost:4000/code/2018/06/19/grid</id><content type="html" xml:base="http://localhost:4000/code/2018/06/19/grid.html">&lt;h1 id=&quot;grid-布局的属性讲解及案例实现&quot;&gt;grid 布局的属性讲解及案例实现&lt;/h1&gt;
 
 &lt;p&gt;基本 DOM 结构&lt;/p&gt;
 
@@ -80,7 +78,7 @@
   子元素优先按列排列，注意 four 的位置，当第一列排不下的了之后，再选择按行排列。&lt;br /&gt;
   &lt;img src=&quot;/assets/images/posts/grid/grid-2-2.png&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
   如果&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;value&amp;gt;&lt;/code&gt;为&lt;code class=&quot;highlighter-rouge&quot;&gt;dense&lt;/code&gt;&lt;br /&gt;
-  尽可能的紧凑排列（子元素之间出现空隙尽可能的小，或者说尽量让空隙出现在右下角）&lt;br /&gt;
+  尽可能的紧凑排列（子元素之间出现空隙尽可能的小，或者说尽量让空隙出现在右下角）&lt;br /&gt;
   &lt;img src=&quot;/assets/images/posts/grid/grid-2-3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;
@@ -105,8 +103,8 @@
     &lt;ul&gt;
       &lt;li&gt;grid-column-start&lt;/li&gt;
       &lt;li&gt;grid-column-end
-以下是一个 3 列的网格， 每条网格线（列）的位置已经用数字标好。&lt;br /&gt;
-为了使子元素占据右边两列， 可以设置：&lt;br /&gt;
+以下是一个 3 列的网格， 每条网格线（列）的位置已经用数字标好。&lt;br /&gt;
+为了使子元素占据右边两列， 可以设置：&lt;br /&gt;
 &lt;code class=&quot;highlighter-rouge&quot;&gt;grid-column: 2 / 4&lt;/code&gt; 表示子元素列宽是占据 &lt;strong&gt;line 2&lt;/strong&gt; 到 &lt;strong&gt;line 4&lt;/strong&gt; 中间的位置。&lt;br /&gt;
 &lt;code class=&quot;highlighter-rouge&quot;&gt;grid-column: 2 / span 2&lt;/code&gt; 表示子元素是占据 从 &lt;strong&gt;line 2&lt;/strong&gt; 开始&lt;strong&gt;2&lt;/strong&gt;个列款宽的位置。&lt;br /&gt;
 &lt;img src=&quot;/assets/images/posts/grid/grid-3.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
@@ -115,7 +113,7 @@
 &lt;/ul&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;通过  设置父元素的 &lt;strong&gt;justify-items&lt;/strong&gt; 和 &lt;strong&gt;align-items&lt;/strong&gt;或者子元素的 &lt;strong&gt;justify-self&lt;/strong&gt; 和 &lt;strong&gt;align-self&lt;/strong&gt; 可以设置网格中元素的位置&lt;/p&gt;
+  &lt;p&gt;通过设置父元素的 &lt;strong&gt;justify-items&lt;/strong&gt; 和 &lt;strong&gt;align-items&lt;/strong&gt;或者子元素的 &lt;strong&gt;justify-self&lt;/strong&gt; 和 &lt;strong&gt;align-self&lt;/strong&gt; 可以设置网格中元素的位置&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h2 id=&quot;一些属性值&quot;&gt;一些属性值&lt;/h2&gt;
@@ -131,7 +129,7 @@
     &lt;p&gt;举个例子&lt;br /&gt;
 &lt;code class=&quot;highlighter-rouge&quot;&gt;grid-template-columns: fit-content(300px) fit-content(300px) 1fr;&lt;/code&gt;&lt;br /&gt;
 &lt;img src=&quot;/assets/images/posts/grid/grid-4-1.png&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
- 左边部分以及中间部分，因为内容区宽占不到 300px， 所以左边区的宽度以内容区为准，中间内容区的宽度会大于 300px,此时受 300px 的限制，宽为 300px，右边 1fr 占据剩余所有空间。（有点类似于 max-width）&lt;/p&gt;
+左边部分以及中间部分，因为内容区宽占不到 300px， 所以左边区的宽度以内容区为准，中间内容区的宽度会大于 300px,此时受 300px 的限制，宽为 300px，右边 1fr 占据剩余所有空间。（有点类似于 max-width）&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;font color=&quot;#FF9300&quot;&gt;min-content&lt;/font&gt;
@@ -141,7 +139,7 @@
   &lt;/li&gt;
   &lt;li&gt;
     &lt;font color=&quot;#FF9300&quot;&gt;fr&lt;/font&gt;
-    &lt;p&gt;显示定义 size 的子元素占据父元素的空间后，&lt;strong&gt;剩余的  空间&lt;/strong&gt;留给被  给予 fr 值的子元素。&lt;br /&gt;
+    &lt;p&gt;显示定义 size 的子元素占据父元素的空间后，&lt;strong&gt;剩余的空间&lt;/strong&gt;留给被给予 fr 值的子元素。&lt;br /&gt;
 那么对于只有一个剩余的子元素来说，size 定义为 1fr 或者 2fr 没有没什么区别，都是占据剩余的所有空间。&lt;br /&gt;
 而对于两个或两个以上的子元素，size 按照 fr 前面的数字，等比分割剩余的空间。&lt;br /&gt;
 同 flex 布局中的 &lt;code class=&quot;highlighter-rouge&quot;&gt;flex: &amp;lt;number&amp;gt;&lt;/code&gt; 类比&lt;/p&gt;
