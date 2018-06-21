@@ -33,14 +33,14 @@ card: # Meng card
   card_img_opacity: '0.8'
 
 live2d: # live2d ,see https://github.com/EYHN/hexo-helper-live2d
-  switch: false
-  model: "/assets/live2d/koharu/koharu.model.json" # model.json path
+  switch: true
+  model: "/assets/live2d/live2d-widget-model-shizuku/assets/shizuku.model.json" # model.json path
   drag: true # is drag ?
   in_mobile: false
   width: 130 # canvas width
   height: 190 # canvas height
-  bottom: 100 # canvas bottom
-  leftOrRight: "right" # left or right
+  bottom: 10 # canvas bottom
+  leftOrRight: "left" # left or right
   offset: 10 # offset
 
 animation: # animate.css, see https://github.com/daneden/animate.css
