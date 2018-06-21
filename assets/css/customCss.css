@@ -60,3 +60,13 @@ body{
 .mdui-text-color-blue{
   color: #FF9300 !important;
 }
+
+/* 阅读本文 信息改变*/
+@font-face{ 
+  font-family: 'Jackson';
+  src: url('/assets/fonts/汉仪易烊千玺体.ttf'); 
+}
+.k-readtime, .k-lastupdate{
+  font-family: 'Jackson';
+  font-size: 16px;
+}
