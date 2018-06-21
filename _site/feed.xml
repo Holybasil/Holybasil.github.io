@@ -1,60 +1,160 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-06-21T12:14:01+08:00</updated><id>http://localhost:4000/</id><title type="html">Holybasil</title><subtitle>Blog</subtitle><author><name>Misty</name></author><entry><title type="html">grid布局</title><link href="http://localhost:4000/code/2018/06/19/grid.html" rel="alternate" type="text/html" title="grid布局" /><published>2018-06-19T14:57:06+08:00</published><updated>2018-06-19T14:57:06+08:00</updated><id>http://localhost:4000/code/2018/06/19/grid</id><content type="html" xml:base="http://localhost:4000/code/2018/06/19/grid.html">&lt;p&gt;grid 布局 详解&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-06-21T16:42:26+08:00</updated><id>http://localhost:4000/</id><title type="html">Holybasil</title><subtitle>Blog</subtitle><author><name>Misty</name></author><entry><title type="html">grid布局</title><link href="http://localhost:4000/code/2018/06/19/grid.html" rel="alternate" type="text/html" title="grid布局" /><published>2018-06-19T14:57:06+08:00</published><updated>2018-06-19T14:57:06+08:00</updated><id>http://localhost:4000/code/2018/06/19/grid</id><content type="html" xml:base="http://localhost:4000/code/2018/06/19/grid.html">&lt;h1 id=&quot;grid-布局的属性讲解及案例实现&quot;&gt;grid 布局的属性讲解及案例实现&lt;/h1&gt;
 
-&lt;h2 id=&quot;属性分析&quot;&gt;属性分析&lt;/h2&gt;
+&lt;hr /&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;GNU/Linux, Unix, 或 macOS 。&lt;/li&gt;
-  &lt;li&gt;Ruby 2.0 以上（含2.0）。&lt;/li&gt;
-  &lt;li&gt;RubyGems&lt;/li&gt;
-  &lt;li&gt;GCC 和 Make（通过&lt;code class=&quot;highlighter-rouge&quot;&gt;gcc -v&lt;/code&gt; 和 &lt;code class=&quot;highlighter-rouge&quot;&gt;make -v&lt;/code&gt; 检查是否已安装）。&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;基本 DOM 结构&lt;/p&gt;
 
-&lt;h2 id=&quot;案例实现&quot;&gt;案例实现&lt;/h2&gt;
+&lt;p&gt;```html {.line-numbers}&lt;/p&gt;
+&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;one&quot;&gt;one&lt;/div&gt;
+  &lt;div class=&quot;two&quot;&gt;two&lt;/div&gt;
+  &lt;div class=&quot;three&quot;&gt;three&lt;/div&gt;
+  &lt;div class=&quot;four&quot;&gt;four&lt;/div&gt;
+  &lt;div class=&quot;five&quot;&gt;five&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+## 属性分析
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+- &amp;lt;font color=&quot;#FF9300&quot;&amp;gt;grid&amp;lt;/font&amp;gt;
+  包括 grid-template-rows/grid-template-columns/grid-template-areas
+  - &amp;lt;font color=&quot;#FF9300&quot;&amp;gt;grid-template-rows&amp;lt;/font&amp;gt; 定义 container 的行
+  - &amp;lt;font color=&quot;#FF9300&quot;&amp;gt;grid-template-columns&amp;lt;/font&amp;gt; 定义 container 的列
+  - &amp;lt;font color=&quot;#FF9300&quot;&amp;gt;grid-template-areas&amp;lt;/font&amp;gt; 用字符串命名来进行布局
+    ```css {.line-numbers}
+    .container {
+      display: grid;
+      width: 400px;
+      grid-template-areas:
+        &quot;one one&quot;
+        &quot;two three&quot;
+        &quot;four five&quot;;
+    }
+    .one {
+      grid-area: one;
+    }
+    .two {
+      grid-area: two;
+    }
+    .three {
+      grid-area: three;
+    }
+    .four {
+      grid-area: four;
+    }
+    .five {
+      grid-area: five;
+    }
+    ```
+    会形成以下布局：
+    ![](/assets/images/posts/grid/grid-1.png)
+
+* &amp;lt;font color=&quot;#FF9300&quot;&amp;gt;grid-gap&amp;lt;/font&amp;gt;
+  定义子元素的间隔 （包括 grid-row-gap 和 grid-column-gap）
+  - &amp;lt;font color=&quot;#FF9300&quot;&amp;gt;grid-row-gap&amp;lt;/font&amp;gt; 定义子元素行之间的间距
+  - &amp;lt;font color=&quot;#FF9300&quot;&amp;gt;grid-column-gap&amp;lt;/font&amp;gt; 定义子元素列之间的间距
+* &amp;lt;font color=&quot;#FF9300&quot;&amp;gt;grid-auto-flow&amp;lt;/font&amp;gt;
+  通过控制自动布局算法的运作原理，精确指定自动布局的元素在网格中的排列方式
+  以下用例子分析 
+  ```scss {.line-numbers}
+  .container {
+    display: grid;
+    width: 400px;
+    grid-auto-flow: &amp;lt;value&amp;gt;;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, min-content);
+    div {
+      border: 1px solid rgba(225, 225, 225, 0.8);
+    }
+    .one {
+      grid-column: 2 span; // 这里表示占据两列
+    }
+    .two {
+      grid-column: 2 span;
+    }
+  }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;如果 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;value&amp;gt;&lt;/code&gt;为&lt;code class=&quot;highlighter-rouge&quot;&gt;row&lt;/code&gt;
+  子元素优先按行排列，一行排不下再换行。
+  &lt;img src=&quot;/assets/images/posts/grid/grid-2-1.png&quot; alt=&quot;&quot; /&gt;
+  如果 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;value&amp;gt;&lt;/code&gt;为&lt;code class=&quot;highlighter-rouge&quot;&gt;column&lt;/code&gt;
+  子元素优先按列排列，注意 four 的位置，当第一列排不下的了之后，再选择按行排列。
+  &lt;img src=&quot;/assets/images/posts/grid/grid-2-2.png&quot; alt=&quot;&quot; /&gt;
+  如果 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;value&amp;gt;&lt;/code&gt;为&lt;code class=&quot;highlighter-rouge&quot;&gt;dense&lt;/code&gt;
+  尽可能的紧凑排列（子元素之间出现空隙尽可能的小，或者说尽量让空隙出现在右下角 ）
+  &lt;img src=&quot;/assets/images/posts/grid/grid-2-3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;font color=&quot;#FF9300&quot;&gt;grid-auto-rows&lt;/font&gt;
+    &lt;p&gt;定义没有给定高度的 row 的高度（即 子元素没有设置 height，父元素的 grid-template-rows 也没有明确给出 row 的高度）&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;font color=&quot;#FF9300&quot;&gt;grid-auto-columns&lt;/font&gt;
+    &lt;p&gt;定义没有给定宽度的 column 的宽度（同上）&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;font color=&quot;#FF9300&quot;&gt;grid-row&lt;/font&gt;
+    &lt;p&gt;定义在子元素上，表示子元素的行的起止位置。&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;grid-row-start&lt;/li&gt;
+      &lt;li&gt;grid-row-end&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;font color=&quot;#FF9300&quot;&gt;grid-column&lt;/font&gt;
+    &lt;p&gt;定义在子元素上，表示子元素的列的起止位置。&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;grid-column-start&lt;/li&gt;
+      &lt;li&gt;grid-column-end
+以下是一个 3 列的网格， 每条网格线（列）的位置已经用数字标好。
+为了使子元素占据右边两列， 可以设置：
+&lt;code class=&quot;highlighter-rouge&quot;&gt;grid-column: 2 / 4&lt;/code&gt; 表示子元素列宽是占据 &lt;strong&gt;line 2&lt;/strong&gt; 到 &lt;strong&gt;line 4&lt;/strong&gt; 中间的位置。
+&lt;code class=&quot;highlighter-rouge&quot;&gt;grid-column: 2 / span 2&lt;/code&gt; 表示子元素是占据 从 &lt;strong&gt;line 2&lt;/strong&gt; 开始&lt;strong&gt;2&lt;/strong&gt;个列款宽的位置。
+&lt;img src=&quot;/assets/images/posts/grid/grid-3.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sum_{i=1}^n x_ie_i&lt;/script&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;通过  设置父元素的 &lt;strong&gt;justify-items&lt;/strong&gt; 和 &lt;strong&gt;align-items&lt;/strong&gt;或者子元素的 &lt;strong&gt;justify-self&lt;/strong&gt; 和 &lt;strong&gt;align-self&lt;/strong&gt; 可以设置网格中元素的位置&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;h2 id=&quot;参考&quot;&gt;参考&lt;/h2&gt;</content><author><name>Misty</name></author><category term="css" /><summary type="html">grid 布局 详解</summary></entry><entry><title type="html">如何安装 Jekyll ？</title><link href="http://localhost:4000/technology/2017/05/27/how-to-install-jekyll.html" rel="alternate" type="text/html" title="如何安装 Jekyll ？" /><published>2017-05-27T14:57:06+08:00</published><updated>2017-05-27T14:57:06+08:00</updated><id>http://localhost:4000/technology/2017/05/27/how-to-install-jekyll</id><content type="html" xml:base="http://localhost:4000/technology/2017/05/27/how-to-install-jekyll.html">&lt;p&gt;Jekyll 一个可以将纯文本转换成静态网站的工具。本站正是使用&lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll&lt;/code&gt;生成并托管在&lt;code class=&quot;highlighter-rouge&quot;&gt;coding page&lt;/code&gt;上的。&lt;/p&gt;
-
-&lt;p&gt;安装 &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll&lt;/code&gt; 及其简单。&lt;/p&gt;
-
-&lt;h2 id=&quot;检查环境&quot;&gt;检查环境&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;GNU/Linux, Unix, 或 macOS 。&lt;/li&gt;
-  &lt;li&gt;Ruby 2.0 以上（含2.0）。&lt;/li&gt;
-  &lt;li&gt;RubyGems&lt;/li&gt;
-  &lt;li&gt;GCC 和 Make（通过&lt;code class=&quot;highlighter-rouge&quot;&gt;gcc -v&lt;/code&gt; 和 &lt;code class=&quot;highlighter-rouge&quot;&gt;make -v&lt;/code&gt; 检查是否已安装）。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;安装-jekyll&quot;&gt;安装 jekyll&lt;/h2&gt;
-
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Install Jekyll and Bundler gems through RubyGems&lt;/span&gt;
-~ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gem &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;jekyll bundler
-
-&lt;span class=&quot;c&quot;&gt;# Create a new Jekyll site at ./myblog&lt;/span&gt;
-~ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;jekyll new myblog
-
-&lt;span class=&quot;c&quot;&gt;# Change into your new directory&lt;/span&gt;
-~ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;myblog
-
-&lt;span class=&quot;c&quot;&gt;# Build the site on the preview server&lt;/span&gt;
-~/myblog &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;jekyll serve
-
-&lt;span class=&quot;c&quot;&gt;# Now browse to http://localhost:4000&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sum_{i=1}^n x_ie_i&lt;/script&gt;
-
-&lt;h2 id=&quot;参考&quot;&gt;参考&lt;/h2&gt;
+&lt;h2 id=&quot;一些属性值&quot;&gt;一些属性值&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://jekyllrb.com/docs/installation/&quot;&gt;Installation&lt;/a&gt;&lt;/p&gt;
+    &lt;font color=&quot;#FF9300&quot;&gt;repeat&lt;/font&gt;
+    &lt;p&gt;简化网格行列的定义
+比如 &lt;code class=&quot;highlighter-rouge&quot;&gt;grid-template-columns: repeat(2, 50px 1fr) 100px;&lt;/code&gt; 等于 &lt;code class=&quot;highlighter-rouge&quot;&gt;grid-template-columns: 50px 1fr 50px 1fr 100px;&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://jekyllrb.com/docs/quickstart/&quot;&gt;Quick-start guide&lt;/a&gt;&lt;/p&gt;
+    &lt;font color=&quot;#FF9300&quot;&gt;fit-content&lt;/font&gt;
+    &lt;p&gt;举个例子
+&lt;code class=&quot;highlighter-rouge&quot;&gt;grid-template-columns: fit-content(300px) fit-content(300px) 1fr;&lt;/code&gt;
+&lt;img src=&quot;/assets/images/posts/grid/grid-4-1.png&quot; alt=&quot;&quot; /&gt;
+ 左边部分以及中间部分，因为内容区宽占不到 300px， 所以左边区的宽度以内容区为准，中间内容区的宽度会大于 300px,此时受 300px 的限制，宽为 300px，右边 1fr 占据剩余所有空间。（有点类似于 max-width）&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Misty</name></author><category term="code" /><summary type="html">Jekyll 一个可以将纯文本转换成静态网站的工具。本站正是使用jekyll生成并托管在coding page上的。</summary></entry></feed>
+  &lt;li&gt;
+    &lt;font color=&quot;#FF9300&quot;&gt;min-content&lt;/font&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;grid-template-columns: min-content minmax(200px, 1fr) 350px;&lt;/code&gt;
+&lt;img src=&quot;/assets/images/posts/grid/grid-4-2.png&quot; alt=&quot;&quot; /&gt;
+取内容区最小宽度值的最大值，典型的例子就是以上，英文单词是默认不换行的，所以取最长的一个单词 brightest 所占据的宽度为此 div 的宽度。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;font color=&quot;#FF9300&quot;&gt;fr&lt;/font&gt;
+    &lt;p&gt;显示定义 size 的子元素占据父元素的空间后，&lt;strong&gt;剩余的  空间&lt;/strong&gt;留给被  给予 fr 值的子元素。
+那么对于只有一个剩余的子元素来说，size 定义为 1fr 或者 2fr 没有没什么区别，都是占据剩余的所有空间。
+而对于两个或两个以上的子元素，size 按照 fr 前面的数字，等比分割剩余的空间。
+同 flex 布局中的 &lt;code class=&quot;highlighter-rouge&quot;&gt;flex: &amp;lt;number&amp;gt;&lt;/code&gt; 类比&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;案例实现&quot;&gt;案例实现&lt;/h2&gt;
+
+&lt;p&gt;TODO&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;css {.line-numbers}
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;参考&quot;&gt;参考&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout&quot;&gt;CSS_Grid_Layout&lt;/a&gt;&lt;/p&gt;</content><author><name>Misty</name></author><category term="css" /><summary type="html">grid 布局的属性讲解及案例实现</summary></entry></feed>
