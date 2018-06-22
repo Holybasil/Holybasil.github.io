@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-06-22T13:21:50+08:00</updated><id>http://localhost:4000/</id><title type="html">Holybasil</title><subtitle>Blog</subtitle><author><name>Misty</name></author><entry><title type="html">grid布局</title><link href="http://localhost:4000/code/2018/06/19/grid.html" rel="alternate" type="text/html" title="grid布局" /><published>2018-06-19T14:57:06+08:00</published><updated>2018-06-19T14:57:06+08:00</updated><id>http://localhost:4000/code/2018/06/19/grid</id><content type="html" xml:base="http://localhost:4000/code/2018/06/19/grid.html">&lt;h1 id=&quot;grid布局的属性讲解及案例实现&quot;&gt;grid布局的属性讲解及案例实现&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-06-22T16:42:41+08:00</updated><id>http://localhost:4000/</id><title type="html">Holybasil</title><subtitle>Blog</subtitle><author><name>Misty</name></author><entry><title type="html">grid布局</title><link href="http://localhost:4000/code/2018/06/19/grid.html" rel="alternate" type="text/html" title="grid布局" /><published>2018-06-19T14:57:06+08:00</published><updated>2018-06-19T14:57:06+08:00</updated><id>http://localhost:4000/code/2018/06/19/grid</id><content type="html" xml:base="http://localhost:4000/code/2018/06/19/grid.html">&lt;h1 id=&quot;grid布局的属性讲解及案例实现&quot;&gt;grid布局的属性讲解及案例实现&lt;/h1&gt;
 
 &lt;p&gt;基本dom结构&lt;/p&gt;
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'container'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'container'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt; // 子元素默认撑满整个网格
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'one'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;one&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'two'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;two&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'three'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;three&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
@@ -14,54 +14,60 @@
 &lt;hr /&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;b&gt;grid&lt;/b&gt;&lt;br /&gt;
+  &lt;li&gt;&lt;strong&gt;grid&lt;/strong&gt;&lt;br /&gt;
 包括 grid-template-rows/grid-template-columns/grid-template-areas
     &lt;ul&gt;
-      &lt;li&gt;&lt;b&gt;grid-template-rows&lt;/b&gt;&lt;br /&gt;
-定义 container 的行&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;grid-template-columns&lt;/b&gt;&lt;br /&gt;
-定义 container 的列&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;grid-template-areas&lt;/b&gt;&lt;br /&gt;
-用字符串命名来进行布局
-        &lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.container&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;grid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;400px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;py&quot;&gt;grid-template-areas&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;s1&quot;&gt;&quot;one one&quot;&lt;/span&gt;
-    &lt;span class=&quot;s1&quot;&gt;&quot;two three&quot;&lt;/span&gt;
-    &lt;span class=&quot;s1&quot;&gt;&quot;four five&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;.one&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;py&quot;&gt;grid-area&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;one&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;.two&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;py&quot;&gt;grid-area&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;two&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;.three&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;py&quot;&gt;grid-area&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;three&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;.four&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;py&quot;&gt;grid-area&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;four&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;.five&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;py&quot;&gt;grid-area&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;five&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
-        &lt;p&gt;会形成以下布局：&lt;br /&gt;
-&lt;img src=&quot;/assets/images/posts/grid/grid-1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-      &lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;grid-template-rows&lt;/strong&gt;&lt;br /&gt;
+定义 container 的行，以空格隔离，值为行的高度。&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;grid-template-columns&lt;/strong&gt;&lt;br /&gt;
+定义 container 的列，同上。&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;grid-template-areas&lt;/strong&gt;&lt;br /&gt;
+用字符串来命名分割好的区域，子元素的&lt;code class=&quot;highlighter-rouge&quot;&gt;grid-area&lt;/code&gt;去认领父元素中&lt;code class=&quot;highlighter-rouge&quot;&gt;grid-template-areas&lt;/code&gt;定义的区域名。&lt;/li&gt;
     &lt;/ul&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;注意正确分割，每一行的列数要相等，如果某一块区域为空，填上&lt;b&gt;.**。&lt;/b&gt;&lt;/p&gt;
+
+      &lt;p&gt;子元素总是要处于父元素中的，如果&lt;strong&gt;grid-template-areas&lt;/strong&gt;的网格分割不够合理。比如子元素定义了&lt;strong&gt;grid-area&lt;/strong&gt;，在父元素的&lt;strong&gt;grid-template-areas&lt;/strong&gt;中却没有其值，那么整个布局会很恐怖。另外，如果一些子元素没有定义&lt;strong&gt;grid-area&lt;/strong&gt;，那么这些子元素会在其他子元素定位完成后，按照&lt;strong&gt;grid-auto-flow&lt;/strong&gt;（默认值为&lt;strong&gt;row&lt;/strong&gt;）的规则来定位。&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nc&quot;&gt;.container&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;grid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;400px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;py&quot;&gt;grid-template-areas&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;s1&quot;&gt;&quot;one one&quot;&lt;/span&gt;
+      &lt;span class=&quot;s1&quot;&gt;&quot;two three&quot;&lt;/span&gt;
+      &lt;span class=&quot;s1&quot;&gt;&quot;four five&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;nc&quot;&gt;.one&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;py&quot;&gt;grid-area&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;one&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;nc&quot;&gt;.two&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;py&quot;&gt;grid-area&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;two&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;nc&quot;&gt;.three&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;py&quot;&gt;grid-area&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;three&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;nc&quot;&gt;.four&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;py&quot;&gt;grid-area&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;four&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;nc&quot;&gt;.five&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;py&quot;&gt;grid-area&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;five&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;会形成以下布局：&lt;br /&gt;
+  &lt;img src=&quot;/assets/images/posts/grid/grid-1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;b&gt;grid-gap&lt;/b&gt;&lt;br /&gt;
-定义子元素的间隔 （包括 grid-row-gap 和 grid-column-gap）
+  &lt;li&gt;&lt;strong&gt;grid-gap&lt;/strong&gt;&lt;br /&gt;
+定义grid cell之间的间隔 （包括 grid-row-gap 和 grid-column-gap）
     &lt;ul&gt;
-      &lt;li&gt;&lt;b&gt;grid-row-gap&lt;/b&gt; &lt;br /&gt;
-定义子元素行之间的间距&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;grid-column-gap&lt;/b&gt;&lt;br /&gt;
-定义子元素列之间的间距&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;grid-row-gap&lt;/strong&gt; &lt;br /&gt;
+定义grid cell行之间的间距&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;grid-column-gap&lt;/strong&gt;&lt;br /&gt;
+定义grid cell列之间的间距&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;b&gt;grid-auto-flow&lt;/b&gt; &lt;br /&gt;
+  &lt;li&gt;&lt;strong&gt;grid-auto-flow&lt;/strong&gt; &lt;br /&gt;
 通过控制自动布局算法的运作原理，精确指定自动布局的元素在网格中的排列方式&lt;br /&gt;
 以下用例子分析
     &lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.container&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -70,87 +76,192 @@
   &lt;span class=&quot;py&quot;&gt;grid-auto-flow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;py&quot;&gt;grid-template-columns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;repeat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
   &lt;span class=&quot;py&quot;&gt;grid-template-rows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;repeat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;min-content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;.container&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;solid&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rgba&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;225&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;225&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;225&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;.one&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;grid-column&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;span&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;这里表示占据两列&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;.two&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;grid-column&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;span&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;solid&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rgba&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;225&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;225&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;225&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;nc&quot;&gt;.one&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;grid-column&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;span&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;这里表示占据两列&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;nc&quot;&gt;.two&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;grid-column&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;span&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;如果&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;value&amp;gt;&lt;/code&gt;为&lt;code class=&quot;highlighter-rouge&quot;&gt;row&lt;/code&gt;&lt;br /&gt;
-子元素优先按行排列，一行排不下再换行。&lt;br /&gt;
-&lt;img src=&quot;/assets/images/posts/grid/grid-2-1.png&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
-如果&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;value&amp;gt;&lt;/code&gt;为&lt;code class=&quot;highlighter-rouge&quot;&gt;column&lt;/code&gt;&lt;br /&gt;
-子元素优先按列排列，注意 four 的位置，当第一列排不下的了之后，再选择按行排列。&lt;br /&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;如果&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;value&amp;gt;&lt;/code&gt;为&lt;code class=&quot;highlighter-rouge&quot;&gt;row&lt;/code&gt;&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;子元素优先按行排列，第一行位置不够，换第二行，以此类推。&lt;br /&gt;
+&lt;img src=&quot;/assets/images/posts/grid/grid-2-1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;如果&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;value&amp;gt;&lt;/code&gt;为&lt;code class=&quot;highlighter-rouge&quot;&gt;column&lt;/code&gt;&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;子元素优先按列排列，注意 four 的位置，当第一列位置不够之后，从第二列开始找位置。&lt;br /&gt;
 &lt;img src=&quot;/assets/images/posts/grid/grid-2-2.png&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
-如果&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;value&amp;gt;&lt;/code&gt;为&lt;code class=&quot;highlighter-rouge&quot;&gt;dense&lt;/code&gt;&lt;br /&gt;
-尽可能的紧凑排列（子元素之间出现空隙尽可能的小，或者说尽量让空隙出现在右下角）&lt;br /&gt;
+此时，我设置four为&lt;code class=&quot;highlighter-rouge&quot;&gt;grid-column: span 2;&lt;/code&gt;，可以看到&lt;br /&gt;
 &lt;img src=&quot;/assets/images/posts/grid/grid-2-3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;如果&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;value&amp;gt;&lt;/code&gt;为&lt;code class=&quot;highlighter-rouge&quot;&gt;dense&lt;/code&gt;&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;尽可能的紧凑排列（每个元素的排列都从左上角到右下角合理选择位置，使得子元素之间尽量不留空隙）&lt;br /&gt;
+&lt;img src=&quot;/assets/images/posts/grid/grid-2-4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;b&gt;grid-auto-rows&lt;/b&gt;&lt;br /&gt;
+  &lt;li&gt;&lt;strong&gt;grid-auto-rows&lt;/strong&gt;&lt;br /&gt;
 定义没有给定高度的 row 的高度（即 子元素没有设置 height，父元素的 grid-template-rows 也没有明确给出 row 的高度）&lt;/li&gt;
-  &lt;li&gt;&lt;b&gt;grid-auto-columns&lt;/b&gt;&lt;br /&gt;
+  &lt;li&gt;&lt;strong&gt;grid-auto-columns&lt;/strong&gt;&lt;br /&gt;
 定义没有给定宽度的 column 的宽度（同上）&lt;/li&gt;
-  &lt;li&gt;&lt;b&gt;grid-row&lt;/b&gt;&lt;br /&gt;
+  &lt;li&gt;&lt;strong&gt;grid-row&lt;/strong&gt;&lt;br /&gt;
 定义在子元素上，表示子元素的行的起止位置。
     &lt;ul&gt;
-      &lt;li&gt;grid-row-start&lt;/li&gt;
-      &lt;li&gt;grid-row-end&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;grid-row-start&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;grid-row-end&lt;/strong&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;b&gt;grid-column&lt;/b&gt;&lt;br /&gt;
+  &lt;li&gt;&lt;strong&gt;grid-column&lt;/strong&gt;&lt;br /&gt;
 定义在子元素上，表示子元素的列的起止位置。
     &lt;ul&gt;
-      &lt;li&gt;grid-column-start&lt;/li&gt;
-      &lt;li&gt;grid-column-end&lt;br /&gt;
+      &lt;li&gt;&lt;strong&gt;grid-column-start&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;grid-column-end&lt;/strong&gt; 
 以下是一个 3 列的网格， 每条网格线（列）的位置已经用数字标好。&lt;br /&gt;
+&lt;img src=&quot;/assets/images/posts/grid/grid-3.png&quot; alt=&quot;&quot; /&gt;
 为了使子元素占据右边两列， 可以设置：&lt;br /&gt;
 &lt;code class=&quot;highlighter-rouge&quot;&gt;grid-column: 2 / 4&lt;/code&gt; 表示子元素列宽是占据 &lt;strong&gt;line 2&lt;/strong&gt; 到 &lt;strong&gt;line 4&lt;/strong&gt; 中间的位置。&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;grid-column: 2 / span 2&lt;/code&gt; 表示子元素是占据 从 &lt;strong&gt;line 2&lt;/strong&gt; 开始&lt;strong&gt;2&lt;/strong&gt;个列款宽的位置。&lt;br /&gt;
-&lt;img src=&quot;/assets/images/posts/grid/grid-3.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;grid-column: 2 / span 2&lt;/code&gt; 表示子元素是占据 从 &lt;strong&gt;line 2&lt;/strong&gt; 开始&lt;strong&gt;2&lt;/strong&gt;个列款宽的位置。&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;通过设置父元素的 &lt;strong&gt;justify-items&lt;/strong&gt; 和 &lt;strong&gt;align-items&lt;/strong&gt;或者子元素的 &lt;strong&gt;justify-self&lt;/strong&gt; 和 &lt;strong&gt;align-self&lt;/strong&gt; 可以设置网格中元素的位置&lt;/p&gt;
+  &lt;p&gt;注意，0是错误值，会使此属性失效。此时大于4的值都会被认为是4，同理，小于-4的值都会被认为是-4。&lt;/p&gt;
+
+  &lt;p&gt;如果出现两个值相同的情况，那么start为这个值，默认占据一行或一列&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;最后&lt;/strong&gt;&lt;br /&gt;
+当子元素有了自己的size，子元素不一定能撑满当前的grid cell，默认位于左上角。&lt;br /&gt;
+通过设置父元素的 &lt;strong&gt;justify-content&lt;/strong&gt; 和 &lt;strong&gt;align-items&lt;/strong&gt;或者子元素的 &lt;strong&gt;justify-self&lt;/strong&gt; 和 &lt;strong&gt;align-self&lt;/strong&gt; 可以设置网格中元素的位置。&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;一些属性值&quot;&gt;一些属性值&lt;/h2&gt;
 &lt;hr /&gt;
 &lt;ul&gt;
-  &lt;li&gt;&lt;b&gt;repeat&lt;/b&gt;&lt;br /&gt;
+  &lt;li&gt;&lt;strong&gt;repeat&lt;/strong&gt;&lt;br /&gt;
 简化网格行列的定义 &lt;br /&gt;
 比如 &lt;code class=&quot;highlighter-rouge&quot;&gt;grid-template-columns: repeat(2, 50px 1fr) 100px;&lt;/code&gt; 等于 &lt;code class=&quot;highlighter-rouge&quot;&gt;grid-template-columns: 50px 1fr 50px 1fr 100px;&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;b&gt;fit-content&lt;/b&gt; &lt;br /&gt;
+    &lt;p&gt;&lt;strong&gt;fit-content&lt;/strong&gt; &lt;br /&gt;
 &lt;code class=&quot;highlighter-rouge&quot;&gt;grid-template-columns: fit-content(300px) fit-content(300px) 1fr;&lt;/code&gt;&lt;br /&gt;
 &lt;img src=&quot;/assets/images/posts/grid/grid-4-1.png&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
-左边部分以及中间部分，因为内容区宽占不到 300px， 所以左边区的宽度以内容区为准，中间内容区的宽度会大于 300px,此时受 300px 的限制，宽为 300px，右边 1fr 占据剩余所有空间。（有点类似于 max-width）&lt;/p&gt;
+左边部分，由于内容区宽不足300px，所以左边区的宽度以内容区为准，中间内容区的宽度会大于 300px,此时受300px的限制，宽为 300px，右边1fr占据剩余所有空间。所以这个属性类似于设置max-size。&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;b&gt;min-content&lt;/b&gt;&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;grid-template-columns: min-content minmax(200px, 1fr) 350px;&lt;/code&gt;&lt;br /&gt;
+    &lt;p&gt;&lt;strong&gt;min-content&lt;/strong&gt;&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;grid-template-columns: min-content minmax(200px, 1fr) 1fr;&lt;/code&gt;&lt;br /&gt;
 &lt;img src=&quot;/assets/images/posts/grid/grid-4-2.png&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
-取内容区最小宽度值的最大值，典型的例子就是以上，英文单词是默认不换行的，所以取最长的一个单词 brightest 所占据的宽度为此 div 的宽度。&lt;/p&gt;
+这个值的意思是，取内容区最小宽度值的最大值。典型的例子就是以上，英文单词是默认不换行的，所以取最长的一个单词brightest所占据的宽度为此div的宽度。中间部分取1fr，与右边部分的1fr，按1:1的比例，分割剩余的空间。&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;b&gt;fr&lt;/b&gt;&lt;br /&gt;
+  &lt;li&gt;&lt;strong&gt;fr&lt;/strong&gt;&lt;br /&gt;
 显示定义 size 的子元素占据父元素的空间后，&lt;strong&gt;剩余的空间&lt;/strong&gt;留给被给予 fr 值的子元素。&lt;br /&gt;
-那么对于只有一个剩余的子元素来说，size 定义为 1fr 或者 2fr 没有没什么区别，都是占据剩余的所有空间。&lt;br /&gt;
-而对于两个或两个以上的子元素，size 按照 fr 前面的数字，等比分割剩余的空间。&lt;br /&gt;
-可以同 flex 布局中的 &lt;code class=&quot;highlighter-rouge&quot;&gt;flex: &amp;lt;number&amp;gt;&lt;/code&gt; 类比。&lt;/li&gt;
+那么对于只有一个剩余的子元素来说，size定义为1fr或者2fr没有没什么区别，都是占据剩余的所有空间。&lt;br /&gt;
+而对于两个或两个以上的子元素，size按照fr前面的数字，等比分割剩余的空间。&lt;br /&gt;
+可以同flex布局中的 &lt;code class=&quot;highlighter-rouge&quot;&gt;flex: &amp;lt;number&amp;gt;&lt;/code&gt; 类比。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;案例实现&quot;&gt;案例实现&lt;/h2&gt;
 &lt;hr /&gt;
-&lt;p&gt;TODO&lt;/p&gt;
+&lt;p&gt;基本dom结构&lt;/p&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'container'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt; // 蓝色
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;header&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt; // 红色
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;aside&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt; // 紫色  
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;content&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt; // 黄色
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;第一种布局header定高200px宽度铺满aside定宽350pxcontent自适应&quot;&gt;第一种布局：header定高200px，宽度铺满，aside定宽350px，content自适应&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/grid/grid-5-1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;方法1&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;css {.line-numbers}
-&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100vw&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100vh&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;.container&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#a0eee1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;grid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;py&quot;&gt;grid-template-rows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;200px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;定义第一行为200px定高&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;第二行高度占据剩余高度（100%&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;200px）的两行布局&lt;/span&gt;
+    &lt;span class=&quot;py&quot;&gt;grid-template-columns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;350px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;定义第一列为350px定宽&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;第二列宽度占据剩余宽度的两列布局&lt;/span&gt;
+    &lt;span class=&quot;err&quot;&gt;.header&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nl&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#f4606c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;nl&quot;&gt;grid-column&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;span&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;设置header占据两列，从line1到line3&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;所以aside会被挤到第二行&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nc&quot;&gt;.aside&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nl&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#c7b3e5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nc&quot;&gt;.content&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nl&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#fdffdf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;方法2&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100vw&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100vh&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;.container&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#a0eee1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;grid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;py&quot;&gt;grid-template-areas&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;用&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;area&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;定义好子元素的布局&lt;/span&gt;
+                        &lt;span class=&quot;s2&quot;&gt;'header header'&lt;/span&gt;
+                        &lt;span class=&quot;s2&quot;&gt;'aside content'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;py&quot;&gt;grid-auto-rows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;200px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;定义自由行的高度&lt;/span&gt;  
+    &lt;span class=&quot;py&quot;&gt;grid-auto-columns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;350px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;定义自由列的宽度&lt;/span&gt;  
+    &lt;span class=&quot;err&quot;&gt;.header&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nl&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#f4606c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;py&quot;&gt;grid-area&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nc&quot;&gt;.aside&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nl&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#c7b3e5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;py&quot;&gt;grid-area&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aside&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nc&quot;&gt;.content&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nl&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#fdffdf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;py&quot;&gt;grid-area&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;以上，因为container中没有定义网格的行列的size（未通过&lt;code class=&quot;highlighter-rouge&quot;&gt;grid-template-rows&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;grid-template-columns&lt;/code&gt;显示定义）,也没有对于子元素显示定义宽高，所以&lt;code class=&quot;highlighter-rouge&quot;&gt;grid-auto-rows&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;grid-auto-columns&lt;/code&gt;生效。&lt;/p&gt;
+
+&lt;p&gt;其中&lt;/p&gt;
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;grid-auto-rows&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;200px&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;1fr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;grid-auto-columns&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;350px&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;1fr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;grid-template-areas&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+                    &lt;span class=&quot;s2&quot;&gt;'header header'&lt;/span&gt;
+                    &lt;span class=&quot;s2&quot;&gt;'aside content'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;可以替换为&lt;/p&gt;
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;grid-template&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+              &lt;span class=&quot;s2&quot;&gt;'header header'&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;200px&lt;/span&gt;
+              &lt;span class=&quot;s2&quot;&gt;'aside content'&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;1fr&lt;/span&gt;
+              &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;350px&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;1fr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;参考&quot;&gt;参考&lt;/h2&gt;
 

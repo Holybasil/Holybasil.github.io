@@ -31,6 +31,11 @@ body{
 header{
   color: #a0522d !important;
 }
+/* 对各标题h1 h2 h3……的定制化*/
+.mdui-typo h3{
+  font-size: 1.2em;
+  font-weight: 500;
+}
 /* 高亮的一些字*/
 .mdui-typo a{
   color: #FF9300;
