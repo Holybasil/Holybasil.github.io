@@ -1,10 +1,10 @@
 /* 对滚动条的定制化*/
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,0.1);
-  border-radius: 5px;
+  background: #918280;
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:window-inactive {
   background: rgb(248, 208, 142);
@@ -28,10 +28,19 @@ body{
   font-family: 'Parley Blod';
   font-size: 50px;
 }
-
+header{
+  color: #a0522d !important;
+}
 /* 高亮的一些字*/
-.mdui-typo a, .mdui-typo code{
+.mdui-typo a{
   color: #FF9300;
+}
+.mdui-typo code{
+  background-color: #fffaf0;
+  color: #a0522d;
+}
+.mdui-typo blockquote{
+  background-color: #ede6e1;
 }
 .mdui-radio input[type=radio]:checked+.mdui-radio-icon{
   border-color: #FF9300;
@@ -47,14 +56,17 @@ body{
 
 #toc ul .toc-active{
   border-left: 3px solid #FF9300 !important;
-  background-color: rgb(248, 208, 142) !important;
+  background-color: rgb(255,222,173) !important;
 }
 #toc ul .toc-h2 a:hover{
-  background-color: rgb(248, 208, 142);
+  background-color: rgb(255,222,173);
+}
+#toc a{
+  color: #a0522d !important;
 }
 /* menu-item 的 active状态*/
 .mdui-btn:hover, .mdui-list-item-active{
-  background-color: rgba(255,222,173,.6);
+  background-color: rgb(255,222,173);
 }
 
 .mdui-text-color-blue{
@@ -69,4 +81,47 @@ body{
 .k-readtime, .k-lastupdate{
   font-family: 'Jackson';
   font-size: 16px;
+  color: #a0522d !important;
+}
+
+/* 代码框 颜色定制化*/
+[class*=language-] .token.string, .style .token.string, .token.entity, .token.operator, .token.url, .token.variable{ /* 里面的string*/
+  color: #918280 !important;
+}
+pre.highlight[class*=language-]{ /* 代码文字*/
+  background-color: #fffaf0;
+  color: #918280;
+}
+code[class*=language-], pre[class*=language-]{ /* 代码文字*/
+  text-shadow: none !important;
+}
+.token.punctuation{ /* 括号的颜色*/
+  color: #918280 !important;
+}
+.token.constant, .token.deleted, .token.property, .token.symbol, .token.tag{
+  color: #f3715c !important;
+}
+.token.attr-name, .token.builtin, .token.char, .token.inserted, .token.selector, .token.string{
+  color: #a0522d !important;
+}
+.token.atrule, .token.attr-value, .token.function{
+  color: #fdb933 !important;
+}
+/* 正文颜色*/
+.mdui-card{
+  color: #483C32;
+}
+
+/* 正文间距*/
+.mdui-typo>ul>li{
+  margin: 2em 0;
+}
+.mdui-typo>ul>li img{
+  margin: 1em 0;
+}
+.mdui-typo>ul>li>ul>li{
+  margin: 1em 0;
+}
+.mdui-typo hr{
+  height: 0;
 }

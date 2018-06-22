@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-06-21T17:49:44+08:00</updated><id>http://localhost:4000/</id><title type="html">Holybasil</title><subtitle>Blog</subtitle><author><name>Misty</name></author><entry><title type="html">grid布局</title><link href="http://localhost:4000/code/2018/06/19/grid.html" rel="alternate" type="text/html" title="grid布局" /><published>2018-06-19T14:57:06+08:00</published><updated>2018-06-19T14:57:06+08:00</updated><id>http://localhost:4000/code/2018/06/19/grid</id><content type="html" xml:base="http://localhost:4000/code/2018/06/19/grid.html">&lt;h1 id=&quot;grid布局的属性讲解及案例实现&quot;&gt;grid布局的属性讲解及案例实现&lt;/h1&gt;
-&lt;hr /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-06-22T13:21:50+08:00</updated><id>http://localhost:4000/</id><title type="html">Holybasil</title><subtitle>Blog</subtitle><author><name>Misty</name></author><entry><title type="html">grid布局</title><link href="http://localhost:4000/code/2018/06/19/grid.html" rel="alternate" type="text/html" title="grid布局" /><published>2018-06-19T14:57:06+08:00</published><updated>2018-06-19T14:57:06+08:00</updated><id>http://localhost:4000/code/2018/06/19/grid</id><content type="html" xml:base="http://localhost:4000/code/2018/06/19/grid.html">&lt;h1 id=&quot;grid布局的属性讲解及案例实现&quot;&gt;grid布局的属性讲解及案例实现&lt;/h1&gt;
 
 &lt;p&gt;基本dom结构&lt;/p&gt;
 &lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'container'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
@@ -11,17 +10,19 @@
   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
 &lt;h2 id=&quot;属性分析&quot;&gt;属性分析&lt;/h2&gt;
+&lt;hr /&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;b&gt;grid&lt;/b&gt;&lt;br /&gt;
 包括 grid-template-rows/grid-template-columns/grid-template-areas
     &lt;ul&gt;
-      &lt;li&gt;&lt;b&gt;grid-template-rows&lt;/b&gt; 定义 container 的行&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;grid-template-columns&lt;/b&gt; 定义 container 的列&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;grid-template-areas&lt;/b&gt; 用字符串命名来进行布局
+      &lt;li&gt;&lt;b&gt;grid-template-rows&lt;/b&gt;&lt;br /&gt;
+定义 container 的行&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;grid-template-columns&lt;/b&gt;&lt;br /&gt;
+定义 container 的列&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;grid-template-areas&lt;/b&gt;&lt;br /&gt;
+用字符串命名来进行布局
         &lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.container&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;nl&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;grid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;400px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -51,14 +52,16 @@
       &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;b&gt;grid-gap&lt;/b&gt;
+  &lt;li&gt;&lt;b&gt;grid-gap&lt;/b&gt;&lt;br /&gt;
 定义子元素的间隔 （包括 grid-row-gap 和 grid-column-gap）
     &lt;ul&gt;
-      &lt;li&gt;&lt;b&gt;grid-row-gap&lt;/b&gt; 定义子元素行之间的间距&lt;/li&gt;
-      &lt;li&gt;&lt;b&gt;grid-column-gap&lt;/b&gt; 定义子元素列之间的间距&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;grid-row-gap&lt;/b&gt; &lt;br /&gt;
+定义子元素行之间的间距&lt;/li&gt;
+      &lt;li&gt;&lt;b&gt;grid-column-gap&lt;/b&gt;&lt;br /&gt;
+定义子元素列之间的间距&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;b&gt;grid-auto-flow&lt;/b&gt;
+  &lt;li&gt;&lt;b&gt;grid-auto-flow&lt;/b&gt; &lt;br /&gt;
 通过控制自动布局算法的运作原理，精确指定自动布局的元素在网格中的排列方式&lt;br /&gt;
 以下用例子分析
     &lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.container&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -88,22 +91,22 @@
 尽可能的紧凑排列（子元素之间出现空隙尽可能的小，或者说尽量让空隙出现在右下角）&lt;br /&gt;
 &lt;img src=&quot;/assets/images/posts/grid/grid-2-3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;b&gt;grid-auto-rows&lt;/b&gt;
+  &lt;li&gt;&lt;b&gt;grid-auto-rows&lt;/b&gt;&lt;br /&gt;
 定义没有给定高度的 row 的高度（即 子元素没有设置 height，父元素的 grid-template-rows 也没有明确给出 row 的高度）&lt;/li&gt;
-  &lt;li&gt;&lt;b&gt;grid-auto-columns&lt;/b&gt;
+  &lt;li&gt;&lt;b&gt;grid-auto-columns&lt;/b&gt;&lt;br /&gt;
 定义没有给定宽度的 column 的宽度（同上）&lt;/li&gt;
-  &lt;li&gt;&lt;b&gt;grid-row&lt;/b&gt;
+  &lt;li&gt;&lt;b&gt;grid-row&lt;/b&gt;&lt;br /&gt;
 定义在子元素上，表示子元素的行的起止位置。
     &lt;ul&gt;
       &lt;li&gt;grid-row-start&lt;/li&gt;
       &lt;li&gt;grid-row-end&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;b&gt;grid-column&lt;/b&gt;
+  &lt;li&gt;&lt;b&gt;grid-column&lt;/b&gt;&lt;br /&gt;
 定义在子元素上，表示子元素的列的起止位置。
     &lt;ul&gt;
       &lt;li&gt;grid-column-start&lt;/li&gt;
-      &lt;li&gt;grid-column-end
+      &lt;li&gt;grid-column-end&lt;br /&gt;
 以下是一个 3 列的网格， 每条网格线（列）的位置已经用数字标好。&lt;br /&gt;
 为了使子元素占据右边两列， 可以设置：&lt;br /&gt;
 &lt;code class=&quot;highlighter-rouge&quot;&gt;grid-column: 2 / 4&lt;/code&gt; 表示子元素列宽是占据 &lt;strong&gt;line 2&lt;/strong&gt; 到 &lt;strong&gt;line 4&lt;/strong&gt; 中间的位置。&lt;br /&gt;
@@ -118,7 +121,7 @@
 &lt;/blockquote&gt;
 
 &lt;h2 id=&quot;一些属性值&quot;&gt;一些属性值&lt;/h2&gt;
-
+&lt;hr /&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;b&gt;repeat&lt;/b&gt;&lt;br /&gt;
 简化网格行列的定义 &lt;br /&gt;
@@ -135,7 +138,7 @@
 &lt;img src=&quot;/assets/images/posts/grid/grid-4-2.png&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
 取内容区最小宽度值的最大值，典型的例子就是以上，英文单词是默认不换行的，所以取最长的一个单词 brightest 所占据的宽度为此 div 的宽度。&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;b&gt;fr&lt;/b&gt;
+  &lt;li&gt;&lt;b&gt;fr&lt;/b&gt;&lt;br /&gt;
 显示定义 size 的子元素占据父元素的空间后，&lt;strong&gt;剩余的空间&lt;/strong&gt;留给被给予 fr 值的子元素。&lt;br /&gt;
 那么对于只有一个剩余的子元素来说，size 定义为 1fr 或者 2fr 没有没什么区别，都是占据剩余的所有空间。&lt;br /&gt;
 而对于两个或两个以上的子元素，size 按照 fr 前面的数字，等比分割剩余的空间。&lt;br /&gt;
@@ -143,7 +146,7 @@
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;案例实现&quot;&gt;案例实现&lt;/h2&gt;
-
+&lt;hr /&gt;
 &lt;p&gt;TODO&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;css {.line-numbers}
