@@ -3,6 +3,18 @@
 [
   
     {
+      "id"    : "ES6",
+      "post": [
+          
+         {
+            "title": "promise async await",
+            "excerpt": "",
+            "url": "/code/2018/06/23/promise.html"
+         } 
+      ]
+    } ,
+  
+    {
       "id"    : "css",
       "post": [
           

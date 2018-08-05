@@ -45,7 +45,13 @@ header{
   color: #a0522d;
 }
 .mdui-typo blockquote{
+  border-radius: 4px;
+  margin: 1em 0 !important;
+  padding: 1em !important;
   background-color: #ede6e1;
+}
+.mdui-typo blockquote p:nth-last-child(1){
+  -webkit-margin-after: 0 !important;
 }
 .mdui-radio input[type=radio]:checked+.mdui-radio-icon{
   border-color: #FF9300;
