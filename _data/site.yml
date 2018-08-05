@@ -2,7 +2,7 @@ head:
    favicon: "https://ooo.0o0.ooo/2017/05/27/59294212bc16e.png" #  the favicon
    high_res_favicon: "https://ooo.0o0.ooo/2017/06/08/5939484dc618e.png" #  the favicon using high quality format
    apple_touch_icon: "https://ooo.0o0.ooo/2017/06/08/5939484dc618e.png" # the iOS Home button icon
-   keywords: "blog jekyll mdui theme" #  the site keywords
+   keywords: "blog html js vue" #  the site keywords
 
 uiux:
    android_chrome_color: "#eeeeee" #  the color of the Chrome address bar
@@ -64,8 +64,8 @@ mathjax: true
 
 google_analytics: ""  # google analytics code
 
-baidu_site_verification: ""  # baidu site verification code
-google_site_verification: ""  # google search console verification code
+baidu_site_verification: "sCPH88B7fx"  # baidu site verification code
+google_site_verification: "jbZpJZ0K3tZTpaXWKu7pJNQbMtZlLOPh18TlG0VeHCU"  # google search console verification code
 
 baidu_auto_push: false  # if you used baidu auto push to commit links
 

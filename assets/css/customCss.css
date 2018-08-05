@@ -16,9 +16,9 @@ body{
   -webkit-font-smoothing: antialiased;
 }
 /* */
-#nprogress .bar{
+/* #nprogress .bar{
   background: rgb(248, 208, 142);
-}
+} */
 /* 左上title的定制化*/
 @font-face{ 
   font-family: 'Parley Blod';
