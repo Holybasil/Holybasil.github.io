@@ -1,4 +1,103 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-08-05T11:03:50+08:00</updated><id>http://localhost:4000/</id><title type="html">Holybasil</title><subtitle>Holybasil Blog</subtitle><author><name>Misty</name></author><entry><title type="html">promise async await</title><link href="http://localhost:4000/code/2018/06/23/promise.html" rel="alternate" type="text/html" title="promise async await" /><published>2018-06-23T14:00:00+08:00</published><updated>2018-06-23T14:00:00+08:00</updated><id>http://localhost:4000/code/2018/06/23/promise</id><content type="html" xml:base="http://localhost:4000/code/2018/06/23/promise.html"></content><author><name>Misty</name></author><category term="ES6" /><summary type="html"></summary></entry><entry><title type="html">grid布局</title><link href="http://localhost:4000/code/2018/06/19/grid.html" rel="alternate" type="text/html" title="grid布局" /><published>2018-06-19T14:57:06+08:00</published><updated>2018-06-19T14:57:06+08:00</updated><id>http://localhost:4000/code/2018/06/19/grid</id><content type="html" xml:base="http://localhost:4000/code/2018/06/19/grid.html">&lt;h1 id=&quot;grid布局的属性讲解及案例实现&quot;&gt;grid布局的属性讲解及案例实现&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-08-18T17:36:43+08:00</updated><id>http://localhost:4000/</id><title type="html">Holybasil</title><subtitle>Holybasil Blog</subtitle><author><name>Misty</name></author><entry><title type="html">event loop</title><link href="http://localhost:4000/code/2018/08/05/event-loop.html" rel="alternate" type="text/html" title="event loop" /><published>2018-08-05T18:31:00+08:00</published><updated>2018-08-05T18:31:00+08:00</updated><id>http://localhost:4000/code/2018/08/05/event%20loop</id><content type="html" xml:base="http://localhost:4000/code/2018/08/05/event-loop.html">&lt;h1 id=&quot;js中的事件循环机制&quot;&gt;js中的事件循环机制&lt;/h1&gt;
+
+&lt;p&gt;首先，javascript是&lt;strong&gt;单线程&lt;/strong&gt;的。作为设计之初主要用来操作DOM的语言，如果允许存在两个线程，一个对当前DOM进行编辑，而另一个对当前DOM进行删除，这种矛盾的命令，是在为难浏览器，所以浏览器要保持GUI渲染线程和JS引擎线程&lt;strong&gt;互斥&lt;/strong&gt;。但是，在单线程中，代码按顺序自上而下的执行，如果某一段代码执行的时间过长，就会引发阻塞，影响后面的代码执行，在浏览器上，非常影响用户体验。于是&lt;strong&gt;event loop&lt;/strong&gt;作为js的并发机制就显得尤为重要。&lt;/p&gt;
+
+&lt;h2 id=&quot;基本概念️&quot;&gt;基本概念☕️&lt;/h2&gt;
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;event-queue&quot;&gt;event queue&lt;/h3&gt;
+&lt;p&gt;js程序在运行时，一直维持着一个事件队列，主线程沿着这个队列依次执行。&lt;/p&gt;
+
+&lt;h3 id=&quot;macrotask&quot;&gt;macrotask&lt;/h3&gt;
+
+&lt;p&gt;script（整体代码）, setTimeout, setInterval, setImmediate, I/O, UI rendering&lt;/p&gt;
+
+&lt;h3 id=&quot;microtask&quot;&gt;microtask&lt;/h3&gt;
+
+&lt;p&gt;process.nextTick, Promises（这里指浏览器实现的原生 Promise）, Object.observe, MutationObserver&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;在不支持原生Promise的浏览器上，经过&lt;code class=&quot;highlighter-rouge&quot;&gt;polyfill&lt;/code&gt;的Promise是基于&lt;code class=&quot;highlighter-rouge&quot;&gt;setTimeout&lt;/code&gt;，所以属于macrotask。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;事件循环过程&quot;&gt;事件循环过程📖&lt;/h2&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/event loop/eventLoop.png&quot; /&gt;
+整个过程大致上如图所示，对于一次宏任务的执行，如果遇到了微任务，那么添加到微任务队列中。当前宏任务执行完毕后（其实是同步代码执行完毕后），检查微任务队列，按先进先出的顺序执行微任务，直到微任务队列为空，这一次宏任务真正执行完毕，开始下一个宏任务。&lt;/p&gt;
+
+&lt;h2 id=&quot;举个例子&quot;&gt;举个例子🌰&lt;/h2&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rose&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'有一只玫瑰花属于我'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'你相信吗'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;promise&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
+      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'世界上还是有很多只玫瑰花'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; 
+      &lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'星星还是很美'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'我浇灌了她'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;promise&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'世界上有很多只玫瑰花'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'星星很美'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'我驯服了这只狐狸'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)},&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'有一只小狐狸与我形影不离'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ro&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;rose&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ro&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'用心喜欢'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;这段代码就是一个宏任务，现在来从第一行开始执行。&lt;/p&gt;
+
+&lt;p&gt;前两段代码只是声明了两个函数，暂时不看。从第三段代码开始，创建了一个Promise，由于Promise内部的代码是同步执行的，所以输出第一句话&lt;code class=&quot;highlighter-rouge&quot;&gt;世界上有很多只玫瑰花&lt;/code&gt;。这个Promise在下一段代码进入resolved，将这个Promise注册到微任务队列1⃣️。接着，遇到了setTimeout，这是一个创建一个宏事件的标志，由定时触发器线程进行为期一秒的定时，时间结束时，将函数推入到主线程的宏任务队列。继续，很好，终于碰到一个最简单的同步输出了，第二句话&lt;code class=&quot;highlighter-rouge&quot;&gt;有一只小狐狸与我形影不离&lt;/code&gt;。下面又是一段函数声明，暂且跳过。终于，在声明了三次函数后，第一次迎来了函数调用，执行&lt;em&gt;start()&lt;/em&gt;。这个start函数声明拥有&lt;em&gt;async&lt;/em&gt;标志，这就意味着，这个函数一定会返回一个Promise。那么首先，进入函数第一行，&lt;em&gt;await rose()&lt;/em&gt;。遇到了await，就意味着这句代码再等一个结果。await标记一次等待表达式的结果，如果是普通function，那么直接获取运算结果，代码同步执行。如果是async标记的function，意味着这个函数会返回一个Promise，那么await就会阻塞后面的代码，等待Promise返回的结果。而这个Promise和被阻塞的代码会作为一整个微任务，被注册到微任务列表中。但是首先，我们会先去执行rose函数，输出&lt;code class=&quot;highlighter-rouge&quot;&gt;有一只玫瑰花属于我&lt;/code&gt;。然后将返回的Promise（此时虽然函数返回的是一个字符串，但是在async标志的影响下，其实是返回Promise.resolve(‘你相信吗’)）和被阻塞的代码注册成一个微任务，放入微任务队列2⃣️。最后，又是一句同步输出，&lt;code class=&quot;highlighter-rouge&quot;&gt;用心喜欢&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;截止到目前为止，同步代码执行完毕，按照约定，开始执行微任务队列中的代码。&lt;/p&gt;
+
+&lt;p&gt;可以看到，微任务列表中此刻有两个微任务，首先执行1⃣️，会输出&lt;code class=&quot;highlighter-rouge&quot;&gt;星星很美&lt;/code&gt;。接着执行2⃣️，也就是ro能够获取到值并输出&lt;code class=&quot;highlighter-rouge&quot;&gt;你相信吗&lt;/code&gt;，接着又是&lt;em&gt;await fox()&lt;/em&gt;，同样，先执行fox函数，函数中创建了一个Promise, 同步输出&lt;code class=&quot;highlighter-rouge&quot;&gt;世界上还是有很多只玫瑰花&lt;/code&gt;，然后将这个Promise注册到微任务队列3⃣️，接着，这个函数自己返回了一个Promise，那么连同await fox()之后的代码注册成一个微任务，放入微任务队列4⃣️。这个时候微任务2⃣️执行完毕，开始执行3⃣️，输出&lt;code class=&quot;highlighter-rouge&quot;&gt;星星还是很美&lt;/code&gt;。接着，执行4⃣️，fo获得结果，输出&lt;code class=&quot;highlighter-rouge&quot;&gt;我浇灌了她&lt;/code&gt;，微任务队列执行完毕。&lt;/p&gt;
+
+&lt;p&gt;当前宏任务执行完毕，定时器触发线程在定时结束后，将函数推入主线程，输出&lt;code class=&quot;highlighter-rouge&quot;&gt;我驯服了这只狐狸&lt;/code&gt;。至此，这段代码执行完毕。&lt;/p&gt;
+
+&lt;p&gt;chrome控制台执行结果如下:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;世界上有很多只玫瑰花
+VM135:15 有一只小狐狸与我形影不离
+VM135:2 有一只玫瑰花属于我
+VM135:24 用心喜欢
+VM135:11 星星很美
+VM135:19 你相信吗
+VM135:6 世界上还是有很多只玫瑰花
+VM135:7 星星还是很美
+VM135:21 我浇灌了她
+undefined
+VM135:13 我驯服了这只狐狸
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;扩展&quot;&gt;扩展&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;h3 id=&quot;vue的异步更新dom策略&quot;&gt;VUE的异步更新DOM策略&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;JS引擎线程，在完成一次宏事件后，会将交接棒传递给UI渲染线程，完成一次UI更新（他们俩只能这样交替进行工作）。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;如果在一次宏事件中，对同一个数据反复进行修改，假使每一次修改都去更新UI，那么代价太大了。所以最好在本次宏事件的末尾获取所有数据的最终状态，一次更新渲染。 Vue.nextTick()，其实就是将回调函数用Promise注册到本次宏事件的微事件队列的末尾，确保当前调用栈执行完毕后，再调用回调函数获取更新数据的最终结果。&lt;/p&gt;
+
+&lt;h2 id=&quot;参考&quot;&gt;参考&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.dailichun.com/2018/01/21/js_singlethread_eventloop.html&quot;&gt;从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理&lt;/a&gt;&lt;/p&gt;</content><author><name>Misty</name></author><category term="js" /><summary type="html">js中的事件循环机制</summary></entry><entry><title type="html">promise async await</title><link href="http://localhost:4000/code/2018/06/23/promise.html" rel="alternate" type="text/html" title="promise async await" /><published>2018-06-23T14:00:00+08:00</published><updated>2018-06-23T14:00:00+08:00</updated><id>http://localhost:4000/code/2018/06/23/promise</id><content type="html" xml:base="http://localhost:4000/code/2018/06/23/promise.html"></content><author><name>Misty</name></author><category term="ES6" /><summary type="html"></summary></entry><entry><title type="html">grid布局</title><link href="http://localhost:4000/code/2018/06/19/grid.html" rel="alternate" type="text/html" title="grid布局" /><published>2018-06-19T14:57:06+08:00</published><updated>2018-06-19T14:57:06+08:00</updated><id>http://localhost:4000/code/2018/06/19/grid</id><content type="html" xml:base="http://localhost:4000/code/2018/06/19/grid.html">&lt;h1 id=&quot;grid布局的属性讲解及案例实现&quot;&gt;grid布局的属性讲解及案例实现&lt;/h1&gt;
 
 &lt;p&gt;基本dom结构&lt;/p&gt;
 &lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'container'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt; // 子元素默认撑满整个网格
